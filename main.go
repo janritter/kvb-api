@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"log"
 	"net/http"
+	"os"
 	"time"
 
 	"github.com/gorilla/mux"
@@ -40,11 +41,17 @@ func tracerProvider(url string) (*tracesdk.TracerProvider, error) {
 }
 
 func main() {
-	tp, err := tracerProvider("http://localhost:14268/api/traces")
-	if err != nil {
-		log.Fatal(err)
+	if os.Getenv("ENABLE_TRACING") == "true" {
+		if os.Getenv("JAEGER_ENDPOINT") == "" {
+			log.Fatal("JAEGER_ENDPOINT is not set")
+		}
+		log.Println("Tracing enabled with Jaeger endpoint", os.Getenv("JAEGER_ENDPOINT"))
+		tp, err := tracerProvider(os.Getenv("JAEGER_ENDPOINT"))
+		if err != nil {
+			log.Fatal(err)
+		}
+		otel.SetTracerProvider(tp)
 	}
-	otel.SetTracerProvider(tp)
 
 	kvbAdapter := adapters.NewKVBAdapter()
 	stationMapperAdapter := adapters.NewStationMapperAdapter()
