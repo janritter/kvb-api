@@ -1,3 +1,9 @@
+prepare:
+	go mod download
+
+build: prepare
+	go build -o bin/kvb-api
+
 run:
 	go run main.go
 
