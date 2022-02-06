@@ -1,6 +1,7 @@
 package main
 
 import (
+	"context"
 	"encoding/json"
 	"log"
 	"net/http"
@@ -12,11 +13,13 @@ import (
 	"github.com/janritter/kvb-api/services"
 	"go.opentelemetry.io/contrib/instrumentation/github.com/gorilla/mux/otelmux"
 	"go.opentelemetry.io/otel"
-	"go.opentelemetry.io/otel/exporters/jaeger"
+	"go.opentelemetry.io/otel/exporters/otlp/otlptrace"
+	"go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracegrpc"
 	"go.opentelemetry.io/otel/propagation"
 	"go.opentelemetry.io/otel/sdk/resource"
 	tracesdk "go.opentelemetry.io/otel/sdk/trace"
 	semconv "go.opentelemetry.io/otel/semconv/v1.4.0"
+	"google.golang.org/grpc"
 )
 
 const (
@@ -24,34 +27,41 @@ const (
 )
 
 func tracerProvider(url string) (*tracesdk.TracerProvider, error) {
-	// Create the Jaeger exporter
-	exp, err := jaeger.New(jaeger.WithCollectorEndpoint(jaeger.WithEndpoint(url)))
+	ctx := context.Background()
+
+	traceClient := otlptracegrpc.NewClient(
+		otlptracegrpc.WithInsecure(),
+		otlptracegrpc.WithEndpoint(url),
+		otlptracegrpc.WithDialOption(grpc.WithBlock()))
+	traceExp, err := otlptrace.New(ctx, traceClient)
 	if err != nil {
 		return nil, err
 	}
+
+	bsp := tracesdk.NewBatchSpanProcessor(traceExp)
 	tp := tracesdk.NewTracerProvider(
-		// Always be sure to batch in production.
-		tracesdk.WithBatcher(exp),
-		// Record information about this application in an Resource.
+		tracesdk.WithSampler(tracesdk.AlwaysSample()),
 		tracesdk.WithResource(resource.NewWithAttributes(
 			semconv.SchemaURL,
 			semconv.ServiceNameKey.String(service),
 		)),
+		tracesdk.WithSpanProcessor(bsp),
 	)
+
 	return tp, nil
 }
 
 func main() {
 	if os.Getenv("ENABLE_TRACING") == "true" {
-		if os.Getenv("JAEGER_ENDPOINT") == "" {
-			log.Fatal("JAEGER_ENDPOINT is not set")
+		if os.Getenv("OTEL_EXPORTER_OTLP_ENDPOINT") == "" {
+			log.Fatal("OTEL_EXPORTER_OTLP_ENDPOINT is not set")
 		}
-		log.Println("Tracing enabled with Jaeger endpoint", os.Getenv("JAEGER_ENDPOINT"))
-		tp, err := tracerProvider(os.Getenv("JAEGER_ENDPOINT"))
+		tp, err := tracerProvider(os.Getenv("OTEL_EXPORTER_OTLP_ENDPOINT"))
 		if err != nil {
 			log.Fatal(err)
 		}
 		otel.SetTracerProvider(tp)
+		log.Println("Tracing enabled with OpenTelemetry endpoint", os.Getenv("OTEL_EXPORTER_OTLP_ENDPOINT"))
 	}
 
 	otel.SetTextMapPropagator(propagation.TraceContext{})

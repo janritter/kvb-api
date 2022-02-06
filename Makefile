@@ -10,5 +10,5 @@ run:
 start-jaeger:
 	docker-compose up -d
 
-run-with-tracing: start-jaeger
-	ENABLE_TRACING=true JAEGER_ENDPOINT="http://localhost:14268/api/traces" go run main.go
+run-with-tracing:
+	ENABLE_TRACING=true OTEL_EXPORTER_OTLP_ENDPOINT="localhost:4317" go run main.go
