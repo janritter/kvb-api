@@ -19,20 +19,16 @@ import (
 	"go.opentelemetry.io/otel/sdk/resource"
 	tracesdk "go.opentelemetry.io/otel/sdk/trace"
 	semconv "go.opentelemetry.io/otel/semconv/v1.4.0"
-	"google.golang.org/grpc"
 )
 
 const (
 	service = "kvb-api"
 )
 
-func tracerProvider(url string) (*tracesdk.TracerProvider, error) {
+func tracerProvider() (*tracesdk.TracerProvider, error) {
 	ctx := context.Background()
 
-	traceClient := otlptracegrpc.NewClient(
-		otlptracegrpc.WithInsecure(),
-		otlptracegrpc.WithEndpoint(url),
-		otlptracegrpc.WithDialOption(grpc.WithBlock()))
+	traceClient := otlptracegrpc.NewClient()
 	traceExp, err := otlptrace.New(ctx, traceClient)
 	if err != nil {
 		return nil, err
@@ -53,15 +49,12 @@ func tracerProvider(url string) (*tracesdk.TracerProvider, error) {
 
 func main() {
 	if os.Getenv("ENABLE_TRACING") == "true" {
-		if os.Getenv("OTEL_EXPORTER_OTLP_ENDPOINT") == "" {
-			log.Fatal("OTEL_EXPORTER_OTLP_ENDPOINT is not set")
-		}
-		tp, err := tracerProvider(os.Getenv("OTEL_EXPORTER_OTLP_ENDPOINT"))
+		log.Println("Configuring trace provider")
+		tp, err := tracerProvider()
 		if err != nil {
 			log.Fatal(err)
 		}
 		otel.SetTracerProvider(tp)
-		log.Println("Tracing enabled with OpenTelemetry endpoint", os.Getenv("OTEL_EXPORTER_OTLP_ENDPOINT"))
 	}
 
 	otel.SetTextMapPropagator(propagation.TraceContext{})
