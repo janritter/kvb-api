@@ -1,6 +1,7 @@
 package main
 
 import (
+	"context"
 	"encoding/json"
 	"log"
 	"net/http"
@@ -12,7 +13,8 @@ import (
 	"github.com/janritter/kvb-api/services"
 	"go.opentelemetry.io/contrib/instrumentation/github.com/gorilla/mux/otelmux"
 	"go.opentelemetry.io/otel"
-	"go.opentelemetry.io/otel/exporters/jaeger"
+	"go.opentelemetry.io/otel/exporters/otlp/otlptrace"
+	"go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracegrpc"
 	"go.opentelemetry.io/otel/propagation"
 	"go.opentelemetry.io/otel/sdk/resource"
 	tracesdk "go.opentelemetry.io/otel/sdk/trace"
@@ -23,31 +25,32 @@ const (
 	service = "kvb-api"
 )
 
-func tracerProvider(url string) (*tracesdk.TracerProvider, error) {
-	// Create the Jaeger exporter
-	exp, err := jaeger.New(jaeger.WithCollectorEndpoint(jaeger.WithEndpoint(url)))
+func tracerProvider() (*tracesdk.TracerProvider, error) {
+	ctx := context.Background()
+
+	traceClient := otlptracegrpc.NewClient()
+	traceExp, err := otlptrace.New(ctx, traceClient)
 	if err != nil {
 		return nil, err
 	}
+
+	bsp := tracesdk.NewBatchSpanProcessor(traceExp)
 	tp := tracesdk.NewTracerProvider(
-		// Always be sure to batch in production.
-		tracesdk.WithBatcher(exp),
-		// Record information about this application in an Resource.
+		tracesdk.WithSampler(tracesdk.AlwaysSample()),
 		tracesdk.WithResource(resource.NewWithAttributes(
 			semconv.SchemaURL,
 			semconv.ServiceNameKey.String(service),
 		)),
+		tracesdk.WithSpanProcessor(bsp),
 	)
+
 	return tp, nil
 }
 
 func main() {
 	if os.Getenv("ENABLE_TRACING") == "true" {
-		if os.Getenv("JAEGER_ENDPOINT") == "" {
-			log.Fatal("JAEGER_ENDPOINT is not set")
-		}
-		log.Println("Tracing enabled with Jaeger endpoint", os.Getenv("JAEGER_ENDPOINT"))
-		tp, err := tracerProvider(os.Getenv("JAEGER_ENDPOINT"))
+		log.Println("Configuring trace provider")
+		tp, err := tracerProvider()
 		if err != nil {
 			log.Fatal(err)
 		}

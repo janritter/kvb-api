@@ -41,11 +41,20 @@ GET `http://localhost:8080/v1/departures/stations/bensberg`
 
 ## Build
 
-The binary binary will be stored at `bin/kvb-api`
+The binary will be stored at `dist/kvb-api`
 
 ```make
 make build
 ```
+
+## Build Docker Image
+
+The binary will be stored at `dist/kvb-api`
+
+```make
+make build-docker
+```
+
 
 ## Usage
 
@@ -54,23 +63,31 @@ make build
 Start the KVB API **without tracing** by running:
 
 ```bash
-./bin/kvb-api
+./dist/kvb-api
 ```
 
-### With Jaeger Tracing
-
-Start the KVB API **with Jaeger tracing** by running:
+To run with Docker, adapt the `docker-compose.yaml` and run:
 
 ```bash
-ENABLE_TRACING=true JAEGER_ENDPOINT="http://localhost:14268/api/traces" ./bin/kvb-api 
+docker-compose up
 ```
 
-Make sure Jaeger is running on the provided URL.
-To start the included Jager all in one container run the following command:
+### With OpenTelemetry
+
+Start the KVB API **with OpenTelemetry tracing** by running:
 
 ```bash
-docker-compose up -d
+make run-with-tracing
 ```
+
+To run with Docker, adapt the `docker-compose.yaml` and run:
+
+```bash
+docker-compose up
+```
+
+Make sure an OpenTelemetry collector is running on the provided URL.
+
 
 ## Development
 
