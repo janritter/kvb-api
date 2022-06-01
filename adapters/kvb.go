@@ -57,8 +57,8 @@ func (adapter *KVBAdapter) GetDeparturesForStationID(ctx context.Context, statio
 	defer span.End()
 	doc.Find("body > div > table:nth-child(2) > tbody > tr").Each(func(i int, s *goquery.Selection) {
 		if i != 0 {
-			route := s.Find("td:nth-child(1)").Text()
-			destination := s.Find("td:nth-child(2)").Text()
+			route := strings.Trim(s.Find("td:nth-child(1)").Text(), " ")
+			destination := strings.Trim(s.Find("td:nth-child(2)").Text(), " ")
 			arrivalTimeString := s.Find("td:nth-child(3)").Text()
 
 			// Build correct time from Sofort and 2 Min
