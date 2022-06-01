@@ -11,7 +11,7 @@ run:
 	go run main.go
 
 run-with-tracing:
-	GRPC_GO_LOG_VERBOSITY_LEVEL=99 GRPC_GO_LOG_SEVERITY_LEVEL=info ENABLE_TRACING=true OTEL_EXPORTER_OTLP_ENDPOINT="logs.janrtr.de:8200" go run main.go
+	GRPC_GO_LOG_VERBOSITY_LEVEL=99 GRPC_GO_LOG_SEVERITY_LEVEL=info ENABLE_TRACING=true OTEL_EXPORTER_OTLP_ENDPOINT="http://localhost:4317" go run main.go
 
 build-docker: clean
 	mkdir -p dist/
