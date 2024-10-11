@@ -3,17 +3,17 @@ module github.com/janritter/kvb-api
 go 1.19
 
 require (
-	github.com/PuerkitoBio/goquery v1.8.0
-	github.com/gorilla/mux v1.8.0
-	github.com/sahilm/fuzzy v0.1.0
+	github.com/PuerkitoBio/goquery v1.10.0
+	github.com/gorilla/mux v1.8.1
+	github.com/sahilm/fuzzy v0.1.1
 	go.opentelemetry.io/contrib/instrumentation/github.com/gorilla/mux/otelmux v0.34.0
 	go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp v0.34.0
-	go.opentelemetry.io/otel v1.9.0
-	go.opentelemetry.io/otel/exporters/otlp/otlptrace v1.9.0
-	go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracegrpc v1.9.0
-	go.opentelemetry.io/otel/sdk v1.9.0
-	go.opentelemetry.io/otel/trace v1.9.0
-	golang.org/x/text v0.3.8
+	go.opentelemetry.io/otel v1.31.0
+	go.opentelemetry.io/otel/exporters/otlp/otlptrace v1.31.0
+	go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracegrpc v1.31.0
+	go.opentelemetry.io/otel/sdk v1.31.0
+	go.opentelemetry.io/otel/trace v1.31.0
+	golang.org/x/text v0.19.0
 )
 
 require (
