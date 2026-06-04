@@ -7,7 +7,7 @@ require (
 	github.com/gorilla/mux v1.8.0
 	github.com/sahilm/fuzzy v0.1.0
 	go.opentelemetry.io/contrib/instrumentation/github.com/gorilla/mux/otelmux v0.34.0
-	go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp v0.34.0
+	go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp v0.44.0
 	go.opentelemetry.io/otel v1.9.0
 	go.opentelemetry.io/otel/exporters/otlp/otlptrace v1.9.0
 	go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracegrpc v1.9.0
