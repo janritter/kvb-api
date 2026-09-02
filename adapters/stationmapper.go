@@ -71,7 +71,6 @@ func findClosestMatchingStation(ctx context.Context, name string) (string, error
 		"Am Kölnberg", "Am Leinacker",
 		"Am Lindenweg",
 		"Am Neuen Forst",
-		"Am Nordpark",
 		"Am Portzenacker",
 		"Am Schildchen",
 		"Am Serviesberg",
@@ -104,7 +103,6 @@ func findClosestMatchingStation(ctx context.Context, name string) (string, error
 		"Bachemer Str.",
 		"Bachstelzenweg",
 		"Bad Godesb. Bf/Löbestr.",
-		"Bad Godesb. Bahnhof/Löbestr.",
 		"Badorf",
 		"Bahnstr.",
 		"Baldurstr.",
@@ -116,8 +114,6 @@ func findClosestMatchingStation(ctx context.Context, name string) (string, error
 		"Bensberg",
 		"Bergheim Friedhof",
 		"Bergheim Fährhaus",
-		"Bergheim Grundschule",
-		"Bergheim Industriegebiet",
 		"Bergheim Kirche",
 		"Bergstr.",
 		"Bernkasteler Str.", "Berrenrather Str.",
@@ -156,7 +152,6 @@ func findClosestMatchingStation(ctx context.Context, name string) (string, error
 		"Boltensternstr.",
 		"Bonhoefferstr.",
 		"Bonn Bad Godesberg Stadthalle",
-		"Bonn Bertha-von-Suttnerplatz",
 		"Bonn Hauptbahnhof",
 		"Bonn West",
 		"Bonner Landstr.", "Bonner Str.",
@@ -263,7 +258,6 @@ func findClosestMatchingStation(ctx context.Context, name string) (string, error
 		"Eschmar Bergheimer Str.",
 		"Eschmar Kirche",
 		"Esserstr.",
-		"Esso",
 		"Ettore-Bugatti-Straße",
 		"Etzelstr.",
 		"Eupener Str.",
@@ -357,7 +351,6 @@ func findClosestMatchingStation(ctx context.Context, name string) (string, error
 		"Hackhauser Weg",
 		"Hagenstr.",
 		"Hahnwald",
-		"Hahnwald Im Hasengarten",
 		"Hahnwaldweg",
 		"Halfengasse",
 		"Hammerschmidtstr.",
@@ -557,7 +550,7 @@ func findClosestMatchingStation(ctx context.Context, name string) (string, error
 		"Merkenich Mitte",
 		"Merkenicher Str.",
 		"Merten",
-		"Meschenich Kirche", "Messe Omnibushof",
+		"Meschenich Kirche",
 		"Methweg",
 		"Metternicherstr.",
 		"Michaelshoven",
@@ -600,9 +593,7 @@ func findClosestMatchingStation(ctx context.Context, name string) (string, error
 		"Neven DuMont Haus",
 		"Nibelungenplatz",
 		"Nibelungenstr.",
-		"Niederkassel Evgl. Kirche",
 		"Niederkassel Nord",
-		"Niederkassel Rathausplatz",
 		"Niederkassel Spicher Str.",
 		"Niederkassel Waldstr.",
 		"Niehl",
@@ -666,7 +657,7 @@ func findClosestMatchingStation(ctx context.Context, name string) (string, error
 		"Ramrather Weg",
 		"Ranzel Gewerbegebiet",
 		"Ranzel Kirche",
-		"Ranzel Schule", "Ranzel Schulstr.",
+		"Ranzel Schulstr.",
 		"Ranzel Sonnenbergerweg",
 		"Ranzel Weilerhof",
 		"Rath-Heumar",
@@ -679,8 +670,6 @@ func findClosestMatchingStation(ctx context.Context, name string) (string, error
 		"Rheidt Bahnhofstr.",
 		"Rheidt Markt",
 		"Rheidt Nord",
-		"Rheidt Süd",
-		"Rheidt Unterführung",
 		"Rheinauhafen",
 		"Rheinbergstr.",
 		"Rheinenergie-Stadion",
@@ -735,7 +724,6 @@ func findClosestMatchingStation(ctx context.Context, name string) (string, error
 		"Schwadorf",
 		"Schwarzrheindorf Kirche",
 		"Schwarzrheindorf Schule",
-		"Schwarzrheindorf Siegaue",
 		"Schwindstr.",
 		"Schüttewerk",
 		"Schützenhofstr.",
@@ -764,11 +752,8 @@ func findClosestMatchingStation(ctx context.Context, name string) (string, error
 		"Siegfriedstr.",
 		"Sieglar Feuerwache",
 		"Sieglar Flachtenstr./Krankenhaus",
-		"Sieglar Im Kirschtal",
 		"Sieglar Leostr.",
 		"Sieglar Rathausstr.",
-		"Sieglar Rathausstr./Kreisel",
-		"Sieglar RSVG",
 		"Sieglar Schulzentrum",
 		"Siegstr.",
 		"Siemensstr.",
@@ -919,7 +904,6 @@ func findClosestMatchingStation(ctx context.Context, name string) (string, error
 		"Wilhelmstr.",
 		"Willi-Lauf-Allee",
 		"Windmühlenstr.",
-		"Wingertsheide",
 		"Wiso-Fakultät",
 		"Wolffsohnstr.",
 		"Worringen S-Bahn",
@@ -945,7 +929,117 @@ func findClosestMatchingStation(ctx context.Context, name string) (string, error
 		"Zündorf Mitte",
 		"Zündorf Olefsgasse",
 		"Zündorf Ranzeler Str.",
-		"Zündorfer Weg",
+		"Ackerstr.",
+		"Am Frohnweiher",
+		"Auenweg",
+		"Auf dem Berlich",
+		"Auf dem Loor",
+		"Auf den Steinen",
+		"August-Wegelin-Str.",
+		"Badische Allee",
+		"Bayenwerft",
+		"Benfleetstr.",
+		"Bf Süd",
+		"Blaubach",
+		"Blumenbergsweg",
+		"Bürgeramt Rodenkirchen",
+		"Bürgerpark Mülheim",
+		"Campingplatz Rodenkirchen (nur Sommerferien)",
+		"Chempark Tor 11",
+		"Chorweiler Nord",
+		"Cottbuser Str.",
+		"Daimlerstr.",
+		"Danzierstr.",
+		"Deliastr.",
+		"Dillenburger Str.",
+		"Drachenfelsstr.",
+		"Dreisamweg",
+		"Eifelwall/Stadtarchiv",
+		"Else-Lang-Str.",
+		"Emil-Hoffmann-Str.",
+		"Emmy-Noether-Str.",
+		"Enrique-Schmidt-Cuadra-Weg",
+		"Entenweg",
+		"Erich-Deuser-Str.",
+		"Eygelshovener Str.",
+		"Franz-Liszt-Str.",
+		"Friedhof Rodenkirchen",
+		"Fuggerstr.",
+		"Geilenkircher Str.",
+		"Geisbergstr.",
+		"Gerolsteiner Str.",
+		"Gewerbegebiet Bilderstöckchen",
+		"Gewerbegebiet Feldkassel",
+		"Gewerbegebiet Marsdorf",
+		"Gleueler Str.",
+		"Graf-Zeppelin-Str.",
+		"Grüner Hof",
+		"Grüngürtel Longerich",
+		"Hasencleverstr.",
+		"Heinrich-Erpenbach-Str.",
+		"Helaweg",
+		"Hermann-Ost-Str.",
+		"Horbeller Str.",
+		"In der Kreuzau",
+		"Kampgasse",
+		"Kappelsweg",
+		"Korber Weg",
+		"Kriemhildstr.",
+		"Kuthstr./Vingst",
+		"Köln/Bonn Flughafen Terminal 1",
+		"Köln/Bonn Flughafen Terminal 2",
+		"Langenbergstr.",
+		"Leidenhausener Str.",
+		"Lokomotivstr.",
+		"Mathilde-Herz-Weg",
+		"Max-Planck-Str. Nord",
+		"Max-Planck-Str. Ost",
+		"Max-Planck-Str. West",
+		"Melatengürtel",
+		"Moldaustr.",
+		"Naheweg",
+		"Neue Eiler Str.",
+		"Neuenhofstr.",
+		"Niehl Nord",
+		"Offenbachplatz",
+		"Okerstr.",
+		"Poll Baumschulenweg",
+		"Rath/Heumar",
+		"RheinEnergieSTADION",
+		"Ricarda-Huch-Str.",
+		"Rochusplatz",
+		"Rotdornstr.",
+		"Scarletallee",
+		"Sibille-Hartmann-Str.",
+		"Sportpark Höhenberg",
+		"St.-Joseph-Kirche",
+		"Staffelbergstr.",
+		"Steinstr. S-Bahn Nord",
+		"Steinstr. S-Bahn Süd",
+		"Swinestr.",
+		"Sürth Rodderweg",
+		"Sürther Feldallee",
+		"Sürther Str.",
+		"Trenkebergstr.",
+		"Uniklinik Köln",
+		"Universität/Markt",
+		"Unter Buschweg",
+		"Unter Gottes Gnaden",
+		"Unter Sachsenhausen",
+		"Vogelsbergstr.",
+		"Wasseramselweg",
+		"Weiden Lübecker Str.",
+		"Weiden Römergrab",
+		"Weiden West",
+		"Werthmannstr.",
+		"Wilhelm-Mauser-Str.",
+		"Worringen Hafen",
+		"Zum Dammfelde",
+		"Zusestr.",
+		"Zündorf Groov",
+		"Zündorf St.-Martin-Str.",
+		"Üdesheimer Weg",
+		"Üsdorf",
 		"Zypressenstr."}
 
 	span.SetAttributes(attribute.String("input_name", name))
@@ -974,8 +1068,8 @@ func getStationIDForName(ctx context.Context, name string) int {
 
 	var m = make(map[string]int)
 
-	m["Aachem[ner Str./Gürtel"] = 178
-	m["Adolfm[-Menzel-Str."] = 119
+	m["Aachener Str./Gürtel"] = 178
+	m["Adolf-Menzel-Str."] = 119
 	m["Adrian-Meller-Str."] = 232
 	m["Aeltgen-Dünwald-Str."] = 630
 	m["Akazienweg"] = 264
@@ -1178,7 +1272,7 @@ func getStationIDForName(ctx context.Context, name string) int {
 	m["Dionysstr."] = 360
 	m["DLR"] = 509
 	m["Dohmengasse"] = 295
-	m["Dom/Hb]f"] = 8
+	m["Dom/Hbf"] = 8
 	m["Donatusstr."] = 383
 	m["Dornstr."] = 430
 	m["Dorotheenstraße"] = 484
@@ -1356,7 +1450,7 @@ func getStationIDForName(ctx context.Context, name string) int {
 	m["Hersel"] = 678
 	m["Herstattallee"] = 388
 	m["Herthastr."] = 53
-	m["Heumark]t"] = 1
+	m["Heumarkt"] = 1
 	m["Heussallee/Museumsmeile"] = 692
 	m["Hildegardis-Krankenhaus"] = 145
 	m["Hildegundweg"] = 618
@@ -1446,14 +1540,14 @@ func getStationIDForName(ctx context.Context, name string) int {
 	m["Klosterhof"] = 617
 	m["Koblenzer Str."] = 67
 	m["Kochwiesenstr."] = 296
-	m["Koelnmesse]"] = 42
+	m["Koelnmesse"] = 42
 	m["Kolkrabenweg"] = 285
 	m["Konrad-Adenauer-Str."] = 120
 	m["Konradstr."] = 156
 	m["Kopernikusschule"] = 470
 	m["Koppensteinstr."] = 176
 	m["Kornblumenweg"] = 502
-	m["Krefelder Wall]"] = 38
+	m["Krefelder Wall"] = 38
 	m["Kretzerstr."] = 309
 	m["Krieger-Straße"] = 864
 	m["Krieler Str."] = 175
@@ -1474,7 +1568,7 @@ func getStationIDForName(ctx context.Context, name string) int {
 	m["Langel Mohlenweg"] = 409
 	m["Langel Nord"] = 408
 	m["Leiblplatz"] = 147
-	m["Leichweg]"] = 71
+	m["Leichweg"] = 71
 	m["Leimbachweg"] = 620
 	m["Leinsamenweg"] = 193
 	m["Leipziger Platz"] = 307
@@ -1535,7 +1629,7 @@ func getStationIDForName(ctx context.Context, name string) int {
 	m["Marsdorf"] = 235
 	m["Maternusplatz"] = 109
 	m["Mathias-Brüggen-Str."] = 278
-	m["Mauritiuskirch]e"] = 4
+	m["Mauritiuskirche"] = 4
 	m["Mauritiusschule"] = 724
 	m["Max-Löbner-Str./Friesdorf"] = 698
 	m["Mechternstr."] = 771
@@ -1974,7 +2068,117 @@ func getStationIDForName(ctx context.Context, name string) int {
 	m["Zündorf Ranzeler Str."] = 762
 	m["Zündorfer Weg"] = 447
 	m["Zypressenstr."] = 389
-
+	m["Ackerstr."] = 932
+	m["Am Frohnweiher"] = 5
+	m["Auenweg"] = 959
+	m["Auf dem Berlich"] = 971
+	m["Auf dem Loor"] = 208
+	m["Auf den Steinen"] = 963
+	m["August-Wegelin-Str."] = 92
+	m["Badische Allee"] = 995
+	m["Bayenwerft"] = 210
+	m["Benfleetstr."] = 967
+	m["Bf Süd"] = 25
+	m["Blaubach"] = 970
+	m["Blumenbergsweg"] = 889
+	m["Bürgeramt Rodenkirchen"] = 980
+	m["Bürgerpark Mülheim"] = 870
+	m["Campingplatz Rodenkirchen (nur Sommerferien)"] = 115
+	m["Chempark Tor 11"] = 648
+	m["Chorweiler Nord"] = 9574
+	m["Cottbuser Str."] = 605
+	m["Daimlerstr."] = 917
+	m["Danzierstr."] = 962
+	m["Deliastr."] = 576
+	m["Dillenburger Str."] = 960
+	m["Drachenfelsstr."] = 260
+	m["Dreisamweg"] = 904
+	m["Eifelwall/Stadtarchiv"] = 26
+	m["Else-Lang-Str."] = 997
+	m["Emil-Hoffmann-Str."] = 123
+	m["Emmy-Noether-Str."] = 994
+	m["Enrique-Schmidt-Cuadra-Weg"] = 504
+	m["Entenweg"] = 279
+	m["Erich-Deuser-Str."] = 998
+	m["Eygelshovener Str."] = 202
+	m["Franz-Liszt-Str."] = 755
+	m["Friedhof Rodenkirchen"] = 100
+	m["Fuggerstr."] = 462
+	m["Geilenkircher Str."] = 184
+	m["Geisbergstr."] = 324
+	m["Gerolsteiner Str."] = 157
+	m["Gewerbegebiet Bilderstöckchen"] = 335
+	m["Gewerbegebiet Feldkassel"] = 33
+	m["Gewerbegebiet Marsdorf"] = 993
+	m["Gleueler Str."] = 5274
+	m["Graf-Zeppelin-Str."] = 475
+	m["Grüner Hof"] = 838
+	m["Grüngürtel Longerich"] = 841
+	m["Hasencleverstr."] = 538
+	m["Heinrich-Erpenbach-Str."] = 248
+	m["Helaweg"] = 986
+	m["Hermann-Ost-Str."] = 647
+	m["Horbeller Str."] = 996
+	m["In der Kreuzau"] = 964
+	m["Kampgasse"] = 436
+	m["Kappelsweg"] = 55
+	m["Korber Weg"] = 483
+	m["Kriemhildstr."] = 472
+	m["Kuthstr./Vingst"] = 10
+	m["Köln/Bonn Flughafen Terminal 1"] = 848
+	m["Köln/Bonn Flughafen Terminal 2"] = 845
+	m["Langenbergstr."] = 984
+	m["Leidenhausener Str."] = 473
+	m["Lokomotivstr."] = 972
+	m["Mathilde-Herz-Weg"] = 266
+	m["Max-Planck-Str. Nord"] = 991
+	m["Max-Planck-Str. Ost"] = 992
+	m["Max-Planck-Str. West"] = 990
+	m["Melatengürtel"] = 182
+	m["Moldaustr."] = 989
+	m["Naheweg"] = 905
+	m["Neue Eiler Str."] = 457
+	m["Neuenhofstr."] = 455
+	m["Niehl Nord"] = 342
+	m["Offenbachplatz"] = 969
+	m["Okerstr."] = 987
+	m["Poll Baumschulenweg"] = 439
+	m["Rath/Heumar"] = 556
+	m["RheinEnergieSTADION"] = 187
+	m["Ricarda-Huch-Str."] = 485
+	m["Rochusplatz"] = 262
+	m["Rotdornstr."] = 50
+	m["Scarletallee"] = 366
+	m["Sibille-Hartmann-Str."] = 782
+	m["Sportpark Höhenberg"] = 518
+	m["St.-Joseph-Kirche"] = 354
+	m["Staffelbergstr."] = 985
+	m["Steinstr. S-Bahn Nord"] = 796
+	m["Steinstr. S-Bahn Süd"] = 797
+	m["Swinestr."] = 988
+	m["Sürth Rodderweg"] = 664
+	m["Sürther Feldallee"] = 226
+	m["Sürther Str."] = 201
+	m["Trenkebergstr."] = 87
+	m["Uniklinik Köln"] = 155
+	m["Universität/Markt"] = 686
+	m["Unter Buschweg"] = 529
+	m["Unter Gottes Gnaden"] = 978
+	m["Unter Sachsenhausen"] = 968
+	m["Vogelsbergstr."] = 983
+	m["Wasseramselweg"] = 965
+	m["Weiden Lübecker Str."] = 966
+	m["Weiden Römergrab"] = 241
+	m["Weiden West"] = 702
+	m["Werthmannstr."] = 785
+	m["Wilhelm-Mauser-Str."] = 265
+	m["Worringen Hafen"] = 501
+	m["Zum Dammfelde"] = 979
+	m["Zusestr."] = 896
+	m["Zündorf Groov"] = 757
+	m["Zündorf St.-Martin-Str."] = 759
+	m["Üdesheimer Weg"] = 434
+	m["Üsdorf"] = 223
 	span.SetAttributes(attribute.String("input_name", name))
 
 	stationID := m[name]
