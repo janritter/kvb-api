@@ -974,8 +974,8 @@ func getStationIDForName(ctx context.Context, name string) int {
 
 	var m = make(map[string]int)
 
-	m["Aachem[ner Str./Gürtel"] = 178
-	m["Adolfm[-Menzel-Str."] = 119
+	m["Aachener Str./Gürtel"] = 178
+	m["Adolf-Menzel-Str."] = 119
 	m["Adrian-Meller-Str."] = 232
 	m["Aeltgen-Dünwald-Str."] = 630
 	m["Akazienweg"] = 264
@@ -1178,7 +1178,7 @@ func getStationIDForName(ctx context.Context, name string) int {
 	m["Dionysstr."] = 360
 	m["DLR"] = 509
 	m["Dohmengasse"] = 295
-	m["Dom/Hb]f"] = 8
+	m["Dom/Hbf"] = 8
 	m["Donatusstr."] = 383
 	m["Dornstr."] = 430
 	m["Dorotheenstraße"] = 484
@@ -1356,7 +1356,7 @@ func getStationIDForName(ctx context.Context, name string) int {
 	m["Hersel"] = 678
 	m["Herstattallee"] = 388
 	m["Herthastr."] = 53
-	m["Heumark]t"] = 1
+	m["Heumarkt"] = 1
 	m["Heussallee/Museumsmeile"] = 692
 	m["Hildegardis-Krankenhaus"] = 145
 	m["Hildegundweg"] = 618
@@ -1446,14 +1446,14 @@ func getStationIDForName(ctx context.Context, name string) int {
 	m["Klosterhof"] = 617
 	m["Koblenzer Str."] = 67
 	m["Kochwiesenstr."] = 296
-	m["Koelnmesse]"] = 42
+	m["Koelnmesse"] = 42
 	m["Kolkrabenweg"] = 285
 	m["Konrad-Adenauer-Str."] = 120
 	m["Konradstr."] = 156
 	m["Kopernikusschule"] = 470
 	m["Koppensteinstr."] = 176
 	m["Kornblumenweg"] = 502
-	m["Krefelder Wall]"] = 38
+	m["Krefelder Wall"] = 38
 	m["Kretzerstr."] = 309
 	m["Krieger-Straße"] = 864
 	m["Krieler Str."] = 175
@@ -1474,7 +1474,7 @@ func getStationIDForName(ctx context.Context, name string) int {
 	m["Langel Mohlenweg"] = 409
 	m["Langel Nord"] = 408
 	m["Leiblplatz"] = 147
-	m["Leichweg]"] = 71
+	m["Leichweg"] = 71
 	m["Leimbachweg"] = 620
 	m["Leinsamenweg"] = 193
 	m["Leipziger Platz"] = 307
@@ -1535,7 +1535,7 @@ func getStationIDForName(ctx context.Context, name string) int {
 	m["Marsdorf"] = 235
 	m["Maternusplatz"] = 109
 	m["Mathias-Brüggen-Str."] = 278
-	m["Mauritiuskirch]e"] = 4
+	m["Mauritiuskirche"] = 4
 	m["Mauritiusschule"] = 724
 	m["Max-Löbner-Str./Friesdorf"] = 698
 	m["Mechternstr."] = 771

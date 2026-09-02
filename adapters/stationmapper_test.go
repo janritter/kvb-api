@@ -122,7 +122,9 @@ func Test_StationMapperAdapter_GetStationIDForName(t *testing.T) {
 		{"Valid: Neumarkt", "Neumarkt", 2, false},
 		{"Valid: Appellhofplatz", "Appellhofplatz", 7, false},
 		{"Fuzzy: Poststr", "Poststr", 3, false},
-		{"Fuzzy: Dom/H returns 0 due to obfuscated map keys", "Dom/H", 0, false},
+		{"Fuzzy: Dom/H", "Dom/H", 8, false},
+		{"Fuzzy: Heumarkt", "Heumarkt", 1, false},
+		{"Fuzzy: Koelnmesse", "Koelnmesse", 42, false},
 		{"Not found: nonexistent", "xyz_nonexistent_abc", -1, true},
 	}
 
